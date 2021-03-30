@@ -187,7 +187,29 @@ while True:
 
         elif x == 12:
             a1 = int(input("enter the id of person you want to delete"))
-            delete_by_id(a, a1)
+            z = delete_by_id(a, a1)
+            a = z
+            print("records updated successfully")
+
+        elif x == 13:
+            a1 = int(input("Add the id of first person"))
+            a2 = int(input("Add the id of second person you want to add as a friend"))
+
+            z = add_friend(a, a1, a2)
+            a = z
+            print("Records updated successfully")
+
+        elif x == 14:
+            a1 = int(input("Add the id of first person"))
+            a2 = int(input("Add the id of second person you want to remove from friend"))
+
+            z = remove_friend(a, a1, a2)
+            a = z
+            print("Records updated successfully")
+
+        elif x == 15
+
+
     else:
         print("please enter correctly")
 
