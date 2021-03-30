@@ -17,38 +17,27 @@ functions defined below.
 - Do not create any global variables in this module.
 '''
 
-s = "samesh"
-b = "IsaBelLa RaMiRez"
+
 a = read_data_from_file()
-dict = {
-    0: filter_by_first_name(a),
-    1: filter_by_last_name(a),
-    3: filter_by_full_name,
-    4: filter_by_age_range(a),
-    5: count_by_gender(a),
-    6: filter_by_address(a),
-    7: find_alumni(a)}
-'''   
-    8:,
-    9:,
-    10:,
-    11:,
-    12:,
-    13:,
-    14:,
-    15:,
-    16:
-'''
+
 while True:
     print("Welcome !!!")
     print("which operation do you wish to perform with data")
-    print("1. Filter person id with first name")
-    print("2. Filter person id with last name")
-    print("3. Filter person id with age range")
-    print("3. Filter person with with full name")
-    print("3. Filter person with with full name")
-    print("3. Filter person with with full name")
-    print("3. Filter person with with full name")
+    print("1.  Filter person id with first name")
+    print("2.  Filter person id with last name")
+    print("3.  Filter person id with age range")
+    print("4.  Filter person id with with full name")
+    print("5.  See how many male and female records are there in database")
+    print("6.  Filter the person Ids with Address")
+    print("7.  See the records of alumni of a particular institute")
+    print("8.  Find out who all are toppers of respective institutes")
+    print("9.  Find who are eligible to donate blood to a particular person")
+    print("10. Find out the common friends of entered group of people")
+    print("11. check whether to persons are related or not (friends directly or indirectly)")
+    print("12. Delete records of a person")
+    print("13. Add a person in friend list")
+    print("14. Remove a person from friend list")
+    print("15. Add educational record of a person")
     print("enter you choice (1 to 14) ; enter blank to exit")
     x = input()
     if x == "":
@@ -180,7 +169,7 @@ while True:
             a1 = int(input("enter the ID of first person"))
             a2 = int(input("enter the ID of second person"))
             z = is_related(a, a1, a2)
-            if z == True:
+            if z:
                 print("both people are related and are friends directly or indirectly")
             else:
                 print("both persons are not related")
@@ -207,8 +196,23 @@ while True:
             a = z
             print("Records updated successfully")
 
-        elif x == 15
+        elif x == 15:
+            pc = float(0)
+            a1 = int(input("enter the ID of the person whose educational record is to be added"))
+            ins = input("enter the name of the institute:(case sensitive)")
+            ans = input("Is the educational program currently going on? (enter y/n for yes/no respectively)")
+            while True:
+                if ans == 'n':
+                    og = False
+                    pc = float(input("enter the final percentage"))
+                    break
 
+                elif ans == 'y':
+                    og = True
+                    break
+                else:
+                    print("please enter correctly")
+            z = add_education(a, a1, ins, pc)
 
     else:
         print("please enter correctly")

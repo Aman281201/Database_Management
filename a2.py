@@ -450,6 +450,3 @@ def add_education(records, person_id, institute_name, ongoing, percentage):
             records[i]["education"].append(dict)
 
     return records
-
-a = read_data_from_file()
-print(filter_by_age_range(a, 40, 50))
