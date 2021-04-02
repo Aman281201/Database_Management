@@ -335,7 +335,45 @@ def is_related(records, person_id_1, person_id_2):
     Returns:
     - A BOOLEAN denoting if the persons are friends of each other, directly or indirectly (if A knows B, B knows C and C knows D, then A knows B, C and D).
     '''
-    pass
+    g = 0
+    id1 = 0
+    id2 = 0
+    ans = False
+    for i in records:
+        if i["id"] == person_id_1 or i["id"] == person_id_2:
+            g += 1
+
+            if g == 1:
+                if i["id"] == person_id_1:
+                    id1 = person_id_1
+                    id2 = person_id_2
+                else:
+                    id1 = person_id_2
+                    id2 = person_id_1
+    if g == 2:
+        for i in records:
+            if i["id"] == person_id_1 or i["id"] == person_id_2:
+                x = i["friend_ids"]
+                x.sort()
+
+                k = x
+                j = x
+                while j:
+                    for y in records:
+                        if y["id"] in j:
+                            for f in y["friend_ids"]:
+                                k.append(f)
+                    k = list(set(k))
+                    j = list(set(k) - set(x))
+                    x = list(set(x))
+                    x = k
+
+                if id2 in k:
+                    ans = True
+                    break
+    return ans
+
+
 
 
 def delete_by_id(records, person_id):
@@ -450,3 +488,4 @@ def add_education(records, person_id, institute_name, ongoing, percentage):
             records[i]["education"].append(dict)
 
     return records
+

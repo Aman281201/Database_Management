@@ -20,32 +20,38 @@ functions defined below.
 
 a = read_data_from_file()
 
+print("Welcome !!!")
+print("which operation do you wish to perform with data")
+print("1.  Filter person id with first name")
+print("2.  Filter person id with last name")
+print("3.  Filter person id with full name")
+print("4.  Filter person id with age range")
+print("5.  See how many male and female records are there in database")
+print("6.  Filter the person Ids with Address")
+print("7.  See the records of alumni of a particular institute")
+print("8.  Find out who all are toppers of respective institutes")
+print("9.  Find who are eligible to donate blood to a particular person")
+print("10. Find out the common friends of entered group of people")
+print("11. check whether to persons are related or not (friends directly or indirectly)")
+print("12. Delete records of a person")
+print("13. Add a person in friend list")
+print("14. Remove a person from friend list")
+print("15. Add educational record of a person")
+print("16. See menu")
+print("17. See all records")
+print("enter you choice (1 to 17) ; enter blank to exit")
+print()
+print()
+
 while True:
-    print("Welcome !!!")
-    print("which operation do you wish to perform with data")
-    print("1.  Filter person id with first name")
-    print("2.  Filter person id with last name")
-    print("3.  Filter person id with age range")
-    print("4.  Filter person id with with full name")
-    print("5.  See how many male and female records are there in database")
-    print("6.  Filter the person Ids with Address")
-    print("7.  See the records of alumni of a particular institute")
-    print("8.  Find out who all are toppers of respective institutes")
-    print("9.  Find who are eligible to donate blood to a particular person")
-    print("10. Find out the common friends of entered group of people")
-    print("11. check whether to persons are related or not (friends directly or indirectly)")
-    print("12. Delete records of a person")
-    print("13. Add a person in friend list")
-    print("14. Remove a person from friend list")
-    print("15. Add educational record of a person")
-    print("enter you choice (1 to 14) ; enter blank to exit")
+
     x = input()
     if x == "":
         break
-    elif int(x) >= 0 and int(x) <= 16:
+    elif int(x) >= 0 and int(x) <= 17:
         x = int(x)
         if x == 1:
-            a1 = int(input("enter the first name (case insensitive) for filtering person id"))
+            a1 = (input("enter the first name (case insensitive) for filtering person id"))
             z = filter_by_first_name(a, a1)
             if z == []:
                 print("No results found")
@@ -53,7 +59,7 @@ while True:
                 print("we found the following results")
                 print(z)
         elif x == 2:
-            a1 = int(input("enter the last name (case insensitive) for filtering person id"))
+            a1 = (input("enter the last name (case insensitive) for filtering person id"))
             z = filter_by_last_name(a, a1)
             if z == []:
                 print("No results found")
@@ -61,7 +67,7 @@ while True:
                 print("we found the following results")
                 print(z)
         elif x == 3:
-            a1 = int(input("enter the full name (case insensitive) for filtering person id"))
+            a1 = (input("enter the full name (case insensitive) for filtering person id"))
             z = filter_by_full_name(a, a1)
             if z == []:
                 print("No results found")
@@ -212,7 +218,37 @@ while True:
                     break
                 else:
                     print("please enter correctly")
-            z = add_education(a, a1, ins, pc)
+            z = add_education(a, a1, ins,og, pc)
+            print("records updated successfully")
+
+        elif x == 16:
+            print("Welcome !!!")
+            print("which operation do you wish to perform with data")
+            print("1.  Filter person id with first name")
+            print("2.  Filter person id with last name")
+            print("3.  Filter person id with full name")
+            print("4.  Filter person id with age range")
+            print("5.  See how many male and female records are there in database")
+            print("6.  Filter the person Ids with Address")
+            print("7.  See the records of alumni of a particular institute")
+            print("8.  Find out who all are toppers of respective institutes")
+            print("9.  Find who are eligible to donate blood to a particular person")
+            print("10. Find out the common friends of entered group of people")
+            print("11. check whether to persons are related or not (friends directly or indirectly)")
+            print("12. Delete records of a person")
+            print("13. Add a person in friend list")
+            print("14. Remove a person from friend list")
+            print("15. Add educational record of a person")
+            print("16. See menu")
+            print("17. See all records")
+            print("enter you choice (1 to 17) ; enter blank to exit")
+            print()
+            print()
+
+        elif x == 17:
+            print("Here are the records")
+            print(a)
+
 
     else:
         print("please enter correctly")
