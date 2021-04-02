@@ -204,20 +204,22 @@ def find_alumni(records, institute_name):
         "last_name"    last name (STRING)
         "percentage"   percentage (FLOAT)
     '''
+
     li = []
     for i in records:
-        for j in i["education"]:
-            if j["institute"].lower() == institute_name.lower() and j["ongoing"] == False:
+        h = len(i["education"]) -1
+        while h >= 0:
+            if i['education'][h]["institute"].lower() == institute_name.lower() and i['education'][h]["ongoing"] == False:
                 dict = {
                     "first_name": i["first_name"],
                     "last_name": i["last_name"],
-                    "percentage": j["percentage"]
+                    "percentage": i['education'][h]["percentage"]
 
                 }
                 li.append(dict)
                 break
+            h = h -1
     return li
-
 
 def find_topper_of_each_institute(records):
     '''
@@ -488,4 +490,5 @@ def add_education(records, person_id, institute_name, ongoing, percentage):
             records[i]["education"].append(dict)
 
     return records
+
 
