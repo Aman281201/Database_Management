@@ -156,14 +156,14 @@ while True:
 
         elif x == 10:
             print("enter the ids if people for which you want to find common friends (enter blank to exit)")
+            ids = []
             while True:
-                ids = []
+
                 a1 = input()
                 if a1 == "":
                     break
                 else:
                     ids.append(int(a1))
-
             z = get_common_friends(a, ids)
             if z == []:
                 print("No common friends found")

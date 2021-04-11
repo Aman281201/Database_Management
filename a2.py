@@ -22,7 +22,7 @@ functions defined below.
 '''
 
 
-def read_data_from_file(file_path="data.json"):
+def read_data_from_file(file_path="demo_data.json"):
     '''
     **** DO NOT modify this function ****
     Description: Reads the data.json file, and converts it into a dictionary.
@@ -91,7 +91,7 @@ def filter_by_full_name(records, full_name):
     Returns:
     - A list of INTEGERS denoting the IDs of the persons with the given full name
         Case 1: No person found => Returns an empty list
-        Case 2: At least one person found => Returns a list containing the IDs of all the persons found
+        Case `2: At least one person found => Returns a list containing the IDs of all the persons found
     '''
     fn = full_name.split()
     li = []
@@ -221,6 +221,7 @@ def find_alumni(records, institute_name):
             h = h -1
     return li
 
+
 def find_topper_of_each_institute(records):
     '''
     Description: Find topper of each institute
@@ -312,7 +313,6 @@ def get_common_friends(records, list_of_ids):
     fi.sort()
     li = []
     a = 0
-    print(fi)
     for i in range(1, len(fi)):
         if fi[i] == fi[i - 1]:
             a += 1
@@ -374,8 +374,6 @@ def is_related(records, person_id_1, person_id_2):
                     ans = True
                     break
     return ans
-
-
 
 
 def delete_by_id(records, person_id):
@@ -490,5 +488,6 @@ def add_education(records, person_id, institute_name, ongoing, percentage):
             records[i]["education"].append(dict)
 
     return records
+
 
 
